@@ -1,0 +1,24 @@
+<div>
+  <form (submit)="getWeather()">
+    <label>
+      City:
+      <input type="text" name="city" [(ngModel)]="city">
+    </label>
+    <label>
+      State:
+      <input type="text" name="state" [(ngModel)]="state">
+    </label>
+    <label>
+      Country:
+      <input type="text" name="country" [(ngModel)]="country">
+    </label>
+    <button type="submit">Get Weather</button>
+  </form>
+
+  <div *ngIf="weather">
+    <h2>Weather for {{ city }}, {{ state }}, {{ country }}</h2>
+    <p>Temperature: {{ weather.main.temp }} &deg;C</p>
+    <p>Description: {{ weather.weather[0].description }}</p>
+    <p>Wind Speed: {{ weather.wind.speed }} m/s</p>
+  </div>
+</div>
